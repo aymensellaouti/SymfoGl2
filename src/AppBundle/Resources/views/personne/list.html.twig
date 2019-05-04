@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ parent() }} | AppBundle:Personne:list{% endblock %}
+
+{% block body %}
+{% for personne in personnes %}
+    <div class="alert {% if (loop.index is even) %} alert-success {% else %} alert-danger {% endif %}">
+        {{ personne.firstname }} {{ personne.name }}
+        <a href="{{ path('personne.remove', {id: personne.id}) }}">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+        </a>
+    </div>
+{% else %}
+
+{% endfor %}
+{% endblock %}
